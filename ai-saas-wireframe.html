@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI SaaS Landing Page — Wireframe</title>
+<style>
+  :root{
+    --line:#9aa0a6;
+    --line-strong:#5f6368;
+    --box:#f3f4f5;
+    --box2:#eceef0;
+    --text:#3c4043;
+    --muted:#80868b;
+    --accent:#c7cacd;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Courier New', monospace;
+    color:var(--text);
+    background:#e8e9eb;
+    padding:40px 20px;
+  }
+  .page{
+    max-width:1100px;
+    margin:0 auto;
+    background:#fff;
+    border:2px solid var(--line-strong);
+  }
+  .label{
+    position:relative;
+    font-size:10px;
+    letter-spacing:.05em;
+    color:var(--muted);
+    text-transform:uppercase;
+    padding:4px 8px;
+    border-bottom:1px dashed var(--line);
+    background:#fafafa;
+  }
+  .block{
+    border-bottom:1px solid var(--line-strong);
+    padding:20px;
+  }
+  .box{
+    border:1.5px dashed var(--line);
+    background:var(--box);
+    padding:14px;
+  }
+  .box-solid{
+    border:1.5px solid var(--line-strong);
+    background:var(--box2);
+  }
+  .placeholder-x{
+    background:repeating-linear-gradient(
+      45deg,
+      var(--box),
+      var(--box) 10px,
+      #e3e5e7 10px,
+      #e3e5e7 20px
+    );
+    border:1.5px dashed var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--muted);
+    font-size:11px;
+    text-align:center;
+  }
+  h1,h2,h3,p{margin:0;}
+  .fake-h1{
+    font-size:28px;
+    color:var(--line-strong);
+    line-height:1.3;
+  }
+  .fake-h2{
+    font-size:20px;
+    color:var(--line-strong);
+  }
+  .fake-p{
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .fake-line{
+    height:10px;
+    background:var(--accent);
+    border-radius:2px;
+    margin:6px 0;
+  }
+  .btn{
+    display:inline-block;
+    border:1.5px solid var(--line-strong);
+    padding:8px 18px;
+    font-size:12px;
+    color:var(--line-strong);
+    background:#fff;
+  }
+  .btn.filled{
+    background:var(--line-strong);
+    color:#fff;
+  }
+
+  /* NAV */
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 24px;
+  }
+  .logo{
+    width:100px;
+    height:28px;
+  }
+  .nav-links{
+    display:flex;
+    gap:20px;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .nav-cta{
+    display:flex;
+    gap:10px;
+  }
+
+  /* HERO */
+  .hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+    padding:60px 24px;
+  }
+  .hero-copy{display:flex; flex-direction:column; gap:16px;}
+  .hero-ctas{display:flex; gap:12px; margin-top:8px;}
+  .hero-visual{
+    height:280px;
+  }
+
+  /* LOGO STRIP */
+  .logo-strip{
+    display:flex;
+    justify-content:space-between;
+    padding:24px;
+    gap:16px;
+  }
+  .logo-strip .box{
+    flex:1;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+  }
+
+  /* FEATURES */
+  .features{padding:50px 24px;}
+  .section-head{
+    text-align:center;
+    max-width:500px;
+    margin:0 auto 36px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .feature-card{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .icon-box{
+    width:36px;
+    height:36px;
+  }
+
+  /* HOW IT WORKS */
+  .steps{
+    padding:50px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .step-row{
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .step-num{
+    width:60px;
+    height:60px;
+    border:1.5px solid var(--line-strong);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    color:var(--line-strong);
+  }
+
+  /* PRODUCT SCREENSHOT */
+  .product-shot{
+    padding:0 24px 50px;
+  }
+  .product-shot .placeholder-x{
+    height:340px;
+  }
+
+  /* TESTIMONIAL */
+  .testimonials{
+    padding:50px 24px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .quote-card{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .avatar-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .avatar{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+  }
+
+  /* PRICING */
+  .pricing{padding:50px 24px;}
+  .pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .price-card{
+    padding:24px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .price-card.featured{
+    border:2px solid var(--line-strong);
+    background:#fff;
+  }
+  .price-num{
+    font-size:26px;
+    color:var(--line-strong);
+  }
+  .feature-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .feature-list-item{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    font-size:11px;
+    color:var(--muted);
+  }
+  .check{
+    width:12px;height:12px;
+    border:1px solid var(--line-strong);
+    flex-shrink:0;
+  }
+
+  /* CTA BAND */
+  .cta-band{
+    padding:50px 24px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    background:var(--box);
+  }
+
+  /* FAQ */
+  .faq{
+    padding:50px 24px;
+    max-width:700px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .faq-item{
+    padding:14px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  /* FOOTER */
+  .footer{
+    padding:40px 24px 24px;
+    display:grid;
+    grid-template-columns:1.5fr repeat(4,1fr);
+    gap:24px;
+  }
+  .footer-col{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    padding:16px 24px;
+    border-top:1px solid var(--line);
+    font-size:10px;
+    color:var(--muted);
+  }
+
+  .annotation{
+    font-size:9px;
+    color:#b23b3b;
+    font-style:italic;
+    margin-top:4px;
+  }
+
+  @media (max-width:700px){
+    .hero{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:1fr;}
+    .testimonials{grid-template-columns:1fr;}
+    .pricing-grid{grid-template-columns:1fr;}
+    .footer{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="label">01 — Navigation bar</div>
+  <div class="block">
+    <div class="nav">
+      <div class="box logo">LOGO</div>
+      <div class="nav-links">
+        <span>Product</span><span>Features</span><span>Pricing</span><span>Docs</span><span>Company</span>
+      </div>
+      <div class="nav-cta">
+        <div class="btn">Log in</div>
+        <div class="btn filled">Start free trial</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">02 — Hero section</div>
+  <div class="block hero">
+    <div class="hero-copy">
+      <div class="box" style="width:160px;padding:4px 10px;font-size:10px;">eyebrow / badge — e.g. "New: v2 launched"</div>
+      <div class="fake-h1">Headline stating the core value prop in one line<br/>(H1, 2 lines max)</div>
+      <div class="fake-p">Subheadline — one to two sentences expanding on the headline. What the product does, who it's for, and the outcome it delivers.</div>
+      <div class="hero-ctas">
+        <div class="btn filled">Start free trial →</div>
+        <div class="btn">Watch demo</div>
+      </div>
+      <div class="fake-p">Small trust line — "No credit card required" / social proof number</div>
+    </div>
+    <div class="placeholder-x hero-visual">
+      Hero visual<br/>(product screenshot, animated demo, or illustration)
+    </div>
+  </div>
+
+  <div class="label">03 — Social proof / logo strip</div>
+  <div class="block">
+    <div class="fake-p" style="text-align:center;margin-bottom:14px;">Trusted by teams at</div>
+    <div class="logo-strip">
+      <div class="box">Logo</div>
+      <div class="box">Logo</div>
+      <div class="box">Logo</div>
+      <div class="box">Logo</div>
+      <div class="box">Logo</div>
+      <div class="box">Logo</div>
+    </div>
+  </div>
+
+  <div class="label">04 — Feature grid (3-up)</div>
+  <div class="block features">
+    <div class="section-head">
+      <div class="fake-h2">Section heading — what the product enables</div>
+      <div class="fake-p">Supporting line clarifying scope of the features below.</div>
+    </div>
+    <div class="feature-grid">
+      <div class="box feature-card">
+        <div class="box icon-box"></div>
+        <div class="fake-line" style="width:60%"></div>
+        <div class="fake-p">Short description of feature one and the benefit it provides to the user.</div>
+      </div>
+      <div class="box feature-card">
+        <div class="box icon-box"></div>
+        <div class="fake-line" style="width:60%"></div>
+        <div class="fake-p">Short description of feature two and the benefit it provides to the user.</div>
+      </div>
+      <div class="box feature-card">
+        <div class="box icon-box"></div>
+        <div class="fake-line" style="width:60%"></div>
+        <div class="fake-p">Short description of feature three and the benefit it provides to the user.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">05 — How it works (numbered steps)</div>
+  <div class="block steps">
+    <div class="section-head" style="margin-bottom:6px;">
+      <div class="fake-h2">How it works</div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="box" style="padding:14px;">
+        <div class="fake-line" style="width:40%"></div>
+        <div class="fake-p">Step one description — connect data, sign up, or configure the model.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="box" style="padding:14px;">
+        <div class="fake-line" style="width:40%"></div>
+        <div class="fake-p">Step two description — the AI processes or automates the task.</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="box" style="padding:14px;">
+        <div class="fake-line" style="width:40%"></div>
+        <div class="fake-p">Step three description — user receives the output/result.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">06 — Product screenshot / deep-dive</div>
+  <div class="block product-shot">
+    <div class="placeholder-x">Large product screenshot or interactive demo panel</div>
+    <div class="annotation">Annotation: consider tabbed view here to show 2–3 use cases</div>
+  </div>
+
+  <div class="label">07 — Testimonials</div>
+  <div class="block testimonials">
+    <div class="box quote-card">
+      <div class="fake-p">"Placeholder quote about the outcome this customer achieved using the product."</div>
+      <div class="avatar-row">
+        <div class="box avatar"></div>
+        <div>
+          <div class="fake-line" style="width:80px;height:8px;"></div>
+          <div class="fake-line" style="width:60px;height:6px;margin-top:4px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="box quote-card">
+      <div class="fake-p">"Placeholder quote about the outcome this customer achieved using the product."</div>
+      <div class="avatar-row">
+        <div class="box avatar"></div>
+        <div>
+          <div class="fake-line" style="width:80px;height:8px;"></div>
+          <div class="fake-line" style="width:60px;height:6px;margin-top:4px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="box quote-card">
+      <div class="fake-p">"Placeholder quote about the outcome this customer achieved using the product."</div>
+      <div class="avatar-row">
+        <div class="box avatar"></div>
+        <div>
+          <div class="fake-line" style="width:80px;height:8px;"></div>
+          <div class="fake-line" style="width:60px;height:6px;margin-top:4px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">08 — Pricing (3 tiers)</div>
+  <div class="block pricing">
+    <div class="section-head">
+      <div class="fake-h2">Simple, usage-based pricing</div>
+      <div class="fake-p">One line clarifying billing model (seats, usage, credits).</div>
+    </div>
+    <div class="pricing-grid">
+      <div class="box price-card">
+        <div class="fake-line" style="width:50%"></div>
+        <div class="price-num">$X /mo</div>
+        <div class="fake-p">Plan description</div>
+        <div class="feature-list">
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+        </div>
+        <div class="btn">Choose plan</div>
+      </div>
+      <div class="box-solid price-card featured">
+        <div class="box" style="width:70px;font-size:9px;padding:2px 6px;">Popular</div>
+        <div class="fake-line" style="width:50%"></div>
+        <div class="price-num">$Y /mo</div>
+        <div class="fake-p">Plan description</div>
+        <div class="feature-list">
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+        </div>
+        <div class="btn filled">Choose plan</div>
+      </div>
+      <div class="box price-card">
+        <div class="fake-line" style="width:50%"></div>
+        <div class="price-num">Custom</div>
+        <div class="fake-p">Plan description</div>
+        <div class="feature-list">
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+          <div class="feature-list-item"><div class="check"></div>Limit / feature</div>
+        </div>
+        <div class="btn">Contact sales</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">09 — CTA band</div>
+  <div class="block cta-band">
+    <div class="fake-h2">Ready to get started?</div>
+    <div class="fake-p" style="max-width:400px;">Closing line reinforcing the value prop and reducing friction to sign up.</div>
+    <div class="hero-ctas">
+      <div class="btn filled">Start free trial →</div>
+      <div class="btn">Talk to sales</div>
+    </div>
+  </div>
+
+  <div class="label">10 — FAQ</div>
+  <div class="block faq">
+    <div class="section-head" style="margin-bottom:6px;">
+      <div class="fake-h2">Frequently asked questions</div>
+    </div>
+    <div class="box faq-item"><div class="fake-line" style="width:70%"></div><div>+</div></div>
+    <div class="box faq-item"><div class="fake-line" style="width:60%"></div><div>+</div></div>
+    <div class="box faq-item"><div class="fake-line" style="width:75%"></div><div>+</div></div>
+    <div class="box faq-item"><div class="fake-line" style="width:55%"></div><div>+</div></div>
+  </div>
+
+  <div class="label">11 — Footer</div>
+  <div class="block footer">
+    <div class="footer-col">
+      <div class="box logo">LOGO</div>
+      <div class="fake-p">One-line tagline restating what the product does.</div>
+    </div>
+    <div class="footer-col">
+      <div class="fake-line" style="width:50%"></div>
+      <div class="fake-p">Product</div><div class="fake-p">Features</div><div class="fake-p">Pricing</div>
+    </div>
+    <div class="footer-col">
+      <div class="fake-line" style="width:50%"></div>
+      <div class="fake-p">About</div><div class="fake-p">Blog</div><div class="fake-p">Careers</div>
+    </div>
+    <div class="footer-col">
+      <div class="fake-line" style="width:50%"></div>
+      <div class="fake-p">Docs</div><div class="fake-p">API</div><div class="fake-p">Support</div>
+    </div>
+    <div class="footer-col">
+      <div class="fake-line" style="width:50%"></div>
+      <div class="fake-p">Privacy</div><div class="fake-p">Terms</div><div class="fake-p">Security</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Company name</span>
+    <span>Social icons</span>
+  </div>
+
+</div>
+
+</body>
+</html>
